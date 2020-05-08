@@ -29,12 +29,11 @@ pipeline {
                                 removePrefix: 'dist/',
                                 remoteDirectory: '/tmp',
                                 execCommand: 'sudo /usr/bin/systemctl stop train-schedule && rm -rf /opt/train-schedule/* && unzip /tmp/trainSchedule.zip -d /opt/bin/systemctl start train-schedule'
+                                    )
+                                ]
+                            )
+                        ]
                     )
-                 )
-                ]
-                )
                 }
             }
         }
-    }
-}
