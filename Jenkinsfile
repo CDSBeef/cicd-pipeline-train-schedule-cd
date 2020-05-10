@@ -40,12 +40,12 @@ pipeline {
         }
         
         stage('Production'){
-            input 'Has Staging Passed IVT'
-            milestone(1)
             when{
                 branch 'master'
             }
             steps {
+                input 'Has Staging Passed IVT?'
+                milestone(1)
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     sshPublisher(
                         failOnError: true,
